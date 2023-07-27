@@ -1,0 +1,48 @@
+ <div class="container pt-3 my-auto" th:fragment="contenido">
+  <div class="row justify-content-center">  
+     <div class="col-md-6">
+      <div class="card shadow border">
+       <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          </div>
+
+
+          <div class="carousel-inner">    
+            <div class="card-body mx-auto">
+                <div th:each="c, iStat : ${categorias}" th:class="${iStat.index == 0} ? 'carousel-item active' : 'carousel-item'">
+                    <div class="d-flex justify-content-center">  
+                      <h2 th:text="${c.nombre}"></h2>
+                    </div>
+                    <img th:src="|/images/categorias/${c.foto}|" class="d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">   
+                       <div class="d-flex justify-content-center">
+                         <a th:href="|/categorias/${c.id}|" class="btn btn-secondary mx-2">ver juguetes</a>
+                       </div>
+                    </div> 
+                </div>
+            </div>             
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div> 
+    </div>     
+   </div>  
+</div>    
+
+
+<script th:fragment="script">
+
+</script>

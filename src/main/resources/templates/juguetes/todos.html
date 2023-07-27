@@ -1,0 +1,36 @@
+<div class="row  row-cols-1 row-cols-md-3 g-4 " th:fragment="contenido">
+    <div th:each="producto : ${productos}">
+        <div class="card shadow border">
+            <div class="card-header h3 d-flex flex-column align-items-center" th:text="|${producto.nombre}|"></div>
+            <div class="card-body mx-auto"><!-- <div class="card-body d-flex flex-column align-items-center"> -->
+                <p class="text-center">
+                    <span class="fw-bold text-danger">Precio: $</span>
+                    <span class="fw-bold text-danger" th:text="${#numbers.formatDecimal(producto.precio, 0, 'POINT', 2, 'COMMA')}"></span>
+                </p>
+                <div class="mb-3" th:if="${producto.foto != null}">
+                    <img th:src="${'/images/productos/' + producto.foto}" th:alt="${'Foto de ' + producto.nombre}"
+                        height="200px">
+                </div>
+                <p>
+                    <span class="fw-bold">Descripción:</span><br>
+                    <span class="fst-italic text-wrap" th:text="${producto.descripcion}"></span>
+                </p>
+                <p>
+                    <span class="fw-bold">Para las edades:</span><br>
+                    <span class="fst-italic" th:text="${producto.edad}"></span>
+                </p>
+                <p>
+                    <span class="fw-bold">Categoría:</span><br>
+                    <span class="fst-italic" th:text="${producto.categoria}"></span>
+                </p>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center">
+                        <a th:href="@{'/juguetes/{id}' (id=${producto.id})}" class="btn btn-secondary mx-2">Ver</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<script th:fragment="script"></script>

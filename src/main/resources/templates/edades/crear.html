@@ -1,0 +1,27 @@
+<div class="container my-auto p-3" th:fragment="contenido">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Crear edad
+                </div>
+                <form class="card-body" th:action="@{/edades/crear}" th:object="${edad}" th:method="POST"
+                    enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="edades" class="form-label">Edades de la edad</label>
+                        <input type="text" class="form-control" id="edades" th:field="*{edades}"
+                            th:errorClass="'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('edades')}" th:errors="*{edades}">
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary mx-2">Guardar</button>
+                        <a href="/edades" class="btn btn-secondary mx-2">Volver</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:fragment="script"></script>

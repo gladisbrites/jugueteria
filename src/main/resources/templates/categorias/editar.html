@@ -1,0 +1,33 @@
+<div class="container my-auto p-3" th:fragment="contenido">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                     Editar Categoria
+                </div>
+                <form class="card-body" th:action="@{'/categorias/editar/{id}' (id=${categoria.id})}" th:object="${categoria}" th:method="PUT" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" th:field="*{nombre}" th:errorClass="'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+                    </div>
+                                      
+                    <div class="mb-3" th:if="${categoria.foto != null}">
+                        <label>Foto actual de la categoria</label>
+                        <img th:src="${'/images/categorias/' + categoria.foto}" th:alt="${'Foto de ' + categoria.nombre}" height="100px">
+                    </div>
+                    <div class="mb-3">
+                        <label for="archivo" class="form-label">Foto de la categoria</label>
+                        <input class="form-control" type="file" id="archivo" name="archivo" accept="image/*">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary mx-2">Editar</button>
+                        <a href="/categorias" class="btn btn-secondary mx-2">Volver</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:fragment="script"></script>
+

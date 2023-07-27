@@ -1,0 +1,36 @@
+<div class="container my-auto p-3" th:fragment="contenido">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border alert-danger">
+                <div class="card-header h3 d-flex flex-column align-items-center" th:text="|${producto.nombre}|"></div>
+                <div class="card-body mx-auto">
+                    <p class="text-center">
+                        <span class="fw-bold text-danger">Precio: $</span>
+                        <span class="fw-bold text-danger" th:text="${#numbers.formatDecimal(producto.precio, 0, 'POINT', 2, 'COMMA')}"></span>
+                    </p>
+
+                    <div class="mb-3" th:if="${producto.foto != null}">
+                        <img th:src="${'/images/productos/' + producto.foto}" th:alt="${'Foto de ' + producto.nombre}"
+                            height="200px">
+                    </div>
+                    <p>
+                        <span class="fw-bold">Descripción:</span><br>
+                        <span class="fst-italic text-wrap" th:text="${producto.descripcion}"></span>
+                    </p>
+                    <p>
+                        <span class="fw-bold">Para las edades:</span><br>
+                        <span class="fst-italic" th:text="${producto.edad}"></span>
+                    </p>
+                    <p>
+                        <span class="fw-bold">Categoría:</span><br>
+                        <span class="fst-italic" th:text="${producto.categoria}"></span>
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <a href="/juguetes" class="btn btn-secondary mx-2">Volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:fragment="script"></script>

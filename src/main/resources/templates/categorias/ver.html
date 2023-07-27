@@ -1,0 +1,57 @@
+<div class="container p-3" th:fragment="contenido">
+    <div class="card p-4">
+        <div class="row">
+            <div th:if="${exito}" class="alert alert-success alert-dismissible fade show">
+                <span th:text="${exito}"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div th:if="${error}" class="alert alert-danger alert-dismissible fade show">
+                <span th:text="${error}"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col h2" th:text=" ${categoria.nombre}">listado de productos de esta categoria</div>
+            <a href="/categorias" class="col-auto btn btn-lg btn-success">
+                <i class="">categorias</i>
+            </a>
+        </div>
+        <table id="productos" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Categoría</th>
+                    <th>Edades</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${productos}">
+                    <td><img th:src="${'/images/productos/' + p.foto}" height="200px"></td>
+                    <td th:text="${p.nombre}"></td>   
+                    <td>             
+                        <span>$</span><span class="fst-italic" th:text="${#numbers.formatDecimal(p.precio, 0, 'POINT', 2, 'COMMA')}"></span>
+                    </td>                 
+                    <!--<td th:text="${#numbers.formatCurrency(p.precio)}"></td>-->
+                    <td th:text="${p.categoria.nombre}"></td>                  
+                    <td th:text="${p.edad.edades}"></td> 
+
+                    <td>
+                        <a class="btn btn-primary" th:href="@{'/productos/{id}' (id=${p.id})}">
+                            <i class="fa-solid fa-eye">ver</i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script th:fragment="script">
+    $(document).ready(function() {
+        $('#productos').DataTable();
+    } );
+</script>

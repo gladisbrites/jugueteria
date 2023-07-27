@@ -1,0 +1,54 @@
+<div class="container my-auto p-3" th:fragment="contenido">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Crear cliente
+                </div>
+                <form class="card-body" th:action="@{/clientes/crear}" th:object="${cliente}" th:method="POST">
+                    <div class="mb-3">
+                        <label for="nombres" class="form-label">Nombres y Apellidos</label>
+                        <input type="text" class="form-control" id="nombres" th:field="*{nombres}" th:errorClass="'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('nombres')}" th:errors="*{nombres}"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Direccion</label>
+                        <input type="text" class="form-control" id="direccion" th:field="*{direccion}" th:errorClass="'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ciudad" class="form-label">Ciudad</label>
+                        <input type="text" class="form-control" id="ciudad" th:field="*{ciudad}" th:errorClass="'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('ciudad')}" th:errors="*{ciudad}"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="provincia" class="form-label">Provincia</label>
+                        <input type="text" class="form-control" id="provincia" th:field="*{provincia}" th:errorClass="'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="codPost" class="form-label">Codigo Postal</label>
+                        <input type="number" class="form-control" id="codPost" th:field="*{codPost}" th:errorClass="'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('codPost')}" th:errors="*{codPost}"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo Electronico</label>
+                        <input type="text" class="form-control" id="correo" th:field="*{correo}" th:errorClass="'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Telefono</label>
+                        <input type="text" class="form-control" id="telefono" th:field="*{telefono}" th:errorClass="'is-invalid'">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary mx-2">Guardar</button>
+                        <a href="/clientes" class="btn btn-secondary mx-2">Volver</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:fragment="script"></script>
+

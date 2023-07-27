@@ -1,0 +1,39 @@
+<div class="container my-auto p-3" th:fragment="contenido">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header h3" th:text="|Cliente  ${cliente.nombres}|"></div>
+                <div class="card-body">
+                    <p>
+                        <span class="fw-bold">Provincia:</span>
+                        <span class="fst-italic" th:text="${cliente.Provincia}"></span>
+                    </p>
+                    
+                    <p>
+                        <span class="fw-bold">Ciudad:</span>
+                        <span class="fst-italic" th:text="${cliente.Ciudad}"></span>
+                    </p>
+                    
+                    <p>
+                        <span class="fw-bold">Direccion:</span>
+                        <span class="fst-italic" th:text="${cliente.Direccion}"></span>
+                    </p>
+                    
+                    <p>
+                        <span class="fw-bold">Telefono:</span>
+                        <span class="fst-italic" th:text="${cliente.Telefono}"></span>
+                    </p>
+                    
+
+                    <div class="d-flex justify-content-center">
+                        <a href="/clientes" class="btn btn-secondary mx-2">Volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:fragment="script"></script>
+
+

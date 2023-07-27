@@ -1,0 +1,46 @@
+<div class="container my-auto p-3" th:fragment="contenido">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border">
+                <div class="card-header h3 d-flex flex-column align-items-center" th:text="|${producto.nombre}|"></div>
+                <div class="card-body mx-auto">
+                    <p>
+                        <span class="fw-bold">Precio:</span>
+                        <span class="fst-italic" th:text="${producto.precio}"></span>
+                    </p>
+
+                    <div class="mb-3" th:if="${producto.foto != null}">
+                        <img th:src="${'/images/productos/' + producto.foto}"
+                            th:alt="${'Foto de ' + producto.nombre}" height="200px">
+                    </div>
+                    <p>
+                        <span class="fw-bold">Descripción:</span><br>
+                        <span class="fst-italic" th:text="${producto.descripcion}"></span>
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <a href="/productos" class="btn btn-secondary mx-2">Volver</a>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+</div>
+<script th:fragment="script"></script>
+
+                    <div class="mb-3" th:if="${producto.foto != null}">
+                        <img th:src="${'/images/productos/' + producto.foto}"
+                            th:alt="${'Foto de ' + producto.nombre}" height="200px">
+                    </div>
+                    <p>
+                        <span class="fw-bold">Descripción:</span><br>
+                        <span class="fst-italic" th:text="${producto.descripcion}"></span>
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <a href="/productos" class="btn btn-secondary mx-2">Volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:fragment="script"></script>
