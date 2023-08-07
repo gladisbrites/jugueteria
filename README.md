@@ -1,9 +1,8 @@
 # Proyecto final del Curso Full-stack con Java- Polo Tic Misiones año 2022- E-commerce "Jugueteria"
 (el proyecto original fue alojado en GitLab al momento de la creación y  desarrollo)
 
-<p> Para ejecutar el proyecto se debe crear una base de datos mariaDB y en el archivo application.properties se debe agregar 
-la coneccion a la base de datos.
-Esta hecho con Spring Boot y Java </p>
+<p> Para ejecutar el proyecto se debe crear una base de datos en nuestro caso la hicimos con mariaDB, con la cual utilizamos XAMPP y phpmyadmin para ayudarnos con la manipulación de la base de datos. En el archivo application.properties realizamos la conexión a la base de datos. 
+Utilizamos Spring Boot y Java </p>
 
 ## ¿Como poner en funcionamiento  el proyecto? 
 <p> Una vez ejecutado el proyecto con "mvn spring-boot:run" se debe crear manualemente en la base de datos "jugeteria". Dos opciones para los roles 
